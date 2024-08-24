@@ -23,7 +23,7 @@ public class Player extends Entity{
         x = 100;
         y = 100;
         speed = 4;
-        direction = "down"; //default direction
+        direction = "rest"; //default direction
     }
 
     public void getPlaterImage() {
@@ -36,12 +36,12 @@ public class Player extends Entity{
             left2 = ImageIO.read(getClass().getResourceAsStream("/player/left2.png"));
             right1 = ImageIO.read(getClass().getResourceAsStream("/player/right1.png"));
             right2 = ImageIO.read(getClass().getResourceAsStream("/player/right2.png"));
-
-
+            rest1 = ImageIO.read(getClass().getResourceAsStream("/player/rest1.png"));
+            rest2 = ImageIO.read(getClass().getResourceAsStream("/player/rest2.png"));
         } catch (IOException e)
-        {
+            {
             e.printStackTrace();
-        }
+            }
     }
     public void update() {
         if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed)
@@ -127,6 +127,15 @@ public class Player extends Entity{
                     image =right2;
                 }
                 break;
+            case "rest":
+                if (spriteNum == 1)
+                {
+                    image =rest1;
+                }
+                if (spriteNum == 2)
+                {
+                    image =rest2;
+                }
         }
         g2.drawImage(image,x,y,gp.tileSize,gp.tileSize,null);
     }
