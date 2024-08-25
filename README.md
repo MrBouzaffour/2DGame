@@ -1,1 +1,1 @@
-# My2DGame
+# 2DGame
